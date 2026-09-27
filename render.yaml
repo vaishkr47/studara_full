@@ -1,0 +1,25 @@
+# Render deploy (free plan) — used only by Render, not for local development.
+# One web service: builds the React frontend, then the backend serves it.
+services:
+  - type: web
+    name: studara
+    runtime: node
+    plan: free
+    buildCommand: >-
+      cd frontend && npm install --include=dev && npm run build &&
+      cd ../backend && npm install --include=dev && npm run build
+    startCommand: cd backend && npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGODB_URI
+        sync: false   # Paste your MongoDB Atlas URI in the Render dashboard
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: AI_API_KEY
+        sync: false
+      - key: YOUTUBE_API_KEY
+        sync: false
