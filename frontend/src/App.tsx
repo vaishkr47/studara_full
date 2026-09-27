@@ -234,10 +234,9 @@ const Navbar = ({ user, onLogout, onNavigate }: { user: UserData | null; onLogou
             role="link"
             aria-label="STUDARA Home"
           >
-            <div className="relative w-10 h-10 flex items-center justify-center">
-              <img src="/logo.png" alt="STUDARA Logo" className="h-full w-full object-contain"
+            <div className="relative w-12 h-12 flex items-center justify-center">
+              <img src="/studara-logo.png" alt="STUDARA Logo" className="h-full w-full object-contain"
                 onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-              <Search className="absolute text-red-500 group-hover:text-red-400 transition-colors" size={24} />
             </div>
             <span className="text-3xl font-bold tracking-tighter text-red-500 group-hover:text-red-400 transition-colors">STUDARA</span>
           </div>
